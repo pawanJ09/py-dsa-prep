@@ -44,6 +44,31 @@ class LinkedList:
                 actual_node = actual_node.next_node
             actual_node.next_node = new_node
 
+    # This method has O(N) complexity where N is the size of the list and each node has to be
+    # traversed to check if it can be removed
+    def remove(self, data):
+        if self.head is not None:
+            actual_node = self.head
+            previous_node = None
+            # O(N) linear complexity
+            while actual_node is not None and actual_node.data != data:
+                previous_node = actual_node
+                actual_node = actual_node.next_node
+            # if node to be deleted is the head node
+            if previous_node is None:
+                self.head = actual_node.next_node
+                self.num_items -= 1
+            # matching node not found because we traversed to the end of the list
+            elif actual_node is None:
+                return
+            # matching node found
+            else:
+                # Data is found and previous node now points to the actual node's next node
+                # We don't physically remove the node, so we update the references and Garbage
+                # collector will remove the unused Node object
+                previous_node.next_node = actual_node.next_node
+                self.num_items -= 1
+
     # This is O(1) complexity as we don't need to traverse the list
     def get_list_count(self):
         return self.num_items
@@ -81,6 +106,20 @@ if __name__ == '__main__':
     print(f'Number of items in Linked List: {linked_list.get_list_count()}')
     linked_list.traverse()
     linked_list.insert_end('End of list')
+    print(f'Number of items in Linked List: {linked_list.get_list_count()}')
+    linked_list.traverse()
+    print('=' * 50)
+    print(f'Removing arbitrary items from the list')
+    linked_list.remove('Pat')
+    print(f'Number of items in Linked List: {linked_list.get_list_count()}')
+    linked_list.traverse()
+    linked_list.remove(22.89)
+    print(f'Number of items in Linked List: {linked_list.get_list_count()}')
+    linked_list.traverse()
+    linked_list.remove('End of list')
+    print(f'Number of items in Linked List: {linked_list.get_list_count()}')
+    linked_list.traverse()
+    linked_list.remove(100)
     print(f'Number of items in Linked List: {linked_list.get_list_count()}')
     linked_list.traverse()
 
