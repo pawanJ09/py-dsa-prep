@@ -100,6 +100,22 @@ class LinkedList:
             current_node = next_node
         self.head = previous_node
 
+    # If even numbers then the second middle is returned.
+    # This is much better than using 2 loops i.e. one to count the items in list and second to
+    # find the node at count/2
+    # In this class I have a num_items which has the current count, we can use that to avoid one
+    # loop and directly go for count/2
+    def find_middle(self):
+        if self.head is not None:
+            fast_pointer = self.head
+            slow_pointer = self.head
+            while fast_pointer and fast_pointer.next_node:
+                fast_pointer = fast_pointer.next_node.next_node
+                slow_pointer = slow_pointer.next_node
+            return slow_pointer
+        return None
+
+
 
 if __name__ == '__main__':
     print(f'Inserting items at the start')
@@ -143,4 +159,9 @@ if __name__ == '__main__':
     print(f'Linked list reversed')
     linked_list.reverse()
     linked_list.traverse()
+    print('=' * 50)
+    print(f'Finding middle node of linked list')
+    linked_list.reverse()
+    linked_list.traverse()
+    print(f'Middle node is: {linked_list.find_middle()}')
 
