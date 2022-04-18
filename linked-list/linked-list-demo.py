@@ -89,6 +89,17 @@ class LinkedList:
         else:
             print(f'Linked list is empty')
 
+    def reverse(self):
+        current_node = self.head
+        previous_node = None
+        next_node = None
+        while current_node is not None:
+            next_node = current_node.next_node
+            current_node.next_node = previous_node
+            previous_node = current_node
+            current_node = next_node
+        self.head = previous_node
+
 
 if __name__ == '__main__':
     print(f'Inserting items at the start')
@@ -121,5 +132,15 @@ if __name__ == '__main__':
     linked_list.traverse()
     linked_list.remove(100)
     print(f'Number of items in Linked List: {linked_list.get_list_count()}')
+    linked_list.traverse()
+    print('=' * 50)
+    print(f'Reversing linked list without additional memory')
+    linked_list.insert_start(14)
+    linked_list.insert_start(53)
+    linked_list.insert_start(77)
+    linked_list.insert_start(29)
+    linked_list.traverse()
+    print(f'Linked list reversed')
+    linked_list.reverse()
     linked_list.traverse()
 
