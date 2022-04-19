@@ -1,4 +1,9 @@
 class QueueStack:
+    """
+    This class defines a stack as a queue where a traditional stack operates in LIFo fashion but
+    this stack operates in FIFO fashion with O(1) time complexity as elements can be popped from
+    the stack directly and space complexity is O(N) since we are having 2 stacks of similar size.
+    """
 
     def __init__(self):
         self.enqueue_stack = []
