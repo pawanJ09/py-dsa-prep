@@ -116,7 +116,6 @@ class LinkedList:
         return None
 
 
-
 if __name__ == '__main__':
     print(f'Inserting items at the start')
     linked_list = LinkedList()
