@@ -1,6 +1,6 @@
 class Stack:
     """
-    Implementing Stack data structure using arrays. Stacks are LIFO (Last In First Out. Stack is
+    Implementing Stack data structure using arrays. Stacks are LIFO (Last In First Out). Stack is
     actually an Abstract data type which is implemented using Array/Linked List data structure.
 
     """
