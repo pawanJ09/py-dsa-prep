@@ -1,17 +1,25 @@
 class Stack:
+    """
+    Implementing Stack data structure using arrays. Stacks are LIFO (Last In First Out. Stack is
+    actually an Abstract data type which is implemented using Array/Linked List data structure.
+
+    """
+
     def __init__(self):
         self.elements = []
 
     def push(self, data: str):
         """
-        Add element to the end/top of the stack
+        Add element to the end/top of the stack. This is O(1) complexity as we are inserting
+        elements at the end of the array
         :param data: str
         """
         self.elements.append(data)
 
     def pop(self):
         """
-        Return element from top of the stack and remove it from the stack
+        Return element from top of the stack and remove it from the stack. This is O(1)
+        complexity as we are removing elements from end of the array
         :return data: str
         """
         element = None
@@ -22,7 +30,8 @@ class Stack:
 
     def peek(self) -> str:
         """
-        Return element from top of the stack
+        Return element from top of the stack. This is O(1) complexity as we are accessing element
+        from the end of the array
         :return data: str
         """
         element = None
