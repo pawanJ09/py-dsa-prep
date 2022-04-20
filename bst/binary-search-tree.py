@@ -1,3 +1,15 @@
+class TreeComparator:
+    def compare(self, node1, node2):
+        # in case node1 or node2 are none
+        if not node1 or not node2:
+            return node1 == node2
+        # check the values
+        if node1.data != node2.data:
+            return False
+        # run recursively for left and right nodes
+        return self.compare(node1.left, node2.left) and self.compare(node1.right, node2.right)
+
+
 class Node:
 
     def __init__(self, data, parent=None):
@@ -161,3 +173,23 @@ if __name__ == '__main__':
     bst.remove(13)
     bst.remove(2)
     bst.traverse()
+    print('=' * 50)
+    print(f'Comparing 2 binary search trees')
+    bst1 = BinarySearchTree()
+    bst1.insert(25)
+    bst1.insert(89)
+    bst1.insert(55)
+    bst1.insert(10)
+    bst1.insert(100)
+    bst1.insert(97)
+    bst1.insert(-5)
+    bst2 = BinarySearchTree()
+    bst2.insert(25)
+    bst2.insert(89)
+    bst2.insert(55)
+    bst2.insert(10)
+    bst2.insert(100)
+    bst2.insert(97)
+    bst2.insert(-5)
+    comp = TreeComparator()
+    print(f'2 trees identical? {comp.compare(bst1.root, bst2.root)}')
