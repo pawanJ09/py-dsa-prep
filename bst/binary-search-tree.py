@@ -39,6 +39,75 @@ class BinarySearchTree:
             else:
                 node.right = Node(data, node)
 
+    def remove(self, data):
+        if self.root:
+            self.remove_node(data, self.root)
+
+    def remove_node(self, data, node):
+        if node is None:
+            return
+
+        if data < node.data:
+            self.remove_node(data, node.left)
+        elif data > node.data:
+            self.remove_node(data, node.right)
+        else:
+            # 3 scenarios
+            # 1. Leaf node case
+            if node.left is None and node.right is None:
+                print(f'Removing leaf node: {node.data}')
+                parent = node.parent
+                # Remove reference of left child
+                if parent is not None and parent.left == node:
+                    parent.left = None
+                # Remove reference of right child
+                if parent is not None and parent.right == node:
+                    parent.right = None
+                # Node doesn't have a parent and hence is a root node
+                if parent is None:
+                    self.root = None
+                del node
+            # 2.a. Left child exists for node being deleted
+            elif node.left is None and node.right is not None:
+                print(f'Removing node with right child: {node.data}')
+                parent = node.parent
+                if parent is not None and parent.left == node:
+                    parent.left = node.right
+                if parent is not None and parent.right == node:
+                    parent.right = node.right
+                if parent is None:
+                    self.root = node.right
+                node.right.parent = parent
+                del node
+            # 2.b. Right child exists for node being deleted
+            elif node.left is not None and node.right is None:
+                print(f'Removing node with left child: {node.data}')
+                parent = node.parent
+                if parent is not None and parent.left == node:
+                    parent.left = node.left
+                if parent is not None and parent.right == node:
+                    parent.right = node.left
+                if parent is None:
+                    self.root = node.left
+                node.left.parent = parent
+                del node
+            # 3. Node being removed has both children
+            else:
+                print(f'Removing items with both children: {node.data}')
+                # Predecessor is the largest leaf node on the left side.
+                # Swap the values with the predecessor and remove the predecessor node since its
+                # easier to remove the leaf node as per scenario 1
+                predecessor = self.get_predecessor(node.left)
+                temp = predecessor.data
+                predecessor.data = node.data
+                node.data = temp
+                self.remove_node(data, predecessor)
+
+    def get_predecessor(self, node):
+        if node.right:
+            return self.get_predecessor(node.right)
+        return node
+
     def get_min(self):
         if self.root:
             return self.get_min_value(self.root)
@@ -82,6 +151,13 @@ if __name__ == '__main__':
     bst.insert(10)
     bst.insert(100)
     bst.insert(97)
+    bst.insert(-5)
     print(f'Max Value {bst.get_max()}')
     print(f'Min Value {bst.get_min()}')
+    bst.traverse()
+    print('=' * 50)
+    print(f'Removing nodes')
+    bst.remove(200)
+    bst.remove(13)
+    bst.remove(2)
     bst.traverse()
