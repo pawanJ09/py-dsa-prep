@@ -79,7 +79,7 @@ class BinarySearchTree:
                 if parent is None:
                     self.root = None
                 del node
-            # 2.a. Left child exists for node being deleted
+            # 2.a. Right child exists for node being deleted
             elif node.left is None and node.right is not None:
                 print(f'Removing node with right child: {node.data}')
                 parent = node.parent
@@ -91,7 +91,7 @@ class BinarySearchTree:
                     self.root = node.right
                 node.right.parent = parent
                 del node
-            # 2.b. Right child exists for node being deleted
+            # 2.b. Left child exists for node being deleted
             elif node.left is not None and node.right is None:
                 print(f'Removing node with left child: {node.data}')
                 parent = node.parent
