@@ -65,3 +65,71 @@ reference to the tail node.</td>
 </tr>
 </table>
 
+## Binary Trees
+
+### Binary Trees Complexities
+
+<table>
+<tr>
+<td></td>
+<td style="text-align:center">Binary Search Tree</td>
+<td style="text-align:center">AVL Tree</td>
+<td style="text-align:center">Red Black Trees</td>
+<td style="text-align:center">Description</td>
+</tr>
+<tr>
+<td style="text-align:center">Space</td>
+<td style="text-align:center">Best Case: O(N), Worst Case: O(N)</td>
+<td style="text-align:center">Best Case: O(N), Worst Case: O(N)</td>
+<td style="text-align:center">Best Case: O(N), Worst Case: O(N)</td>
+<td style="text-align:center">All of these have similar space complexity because we need to 
+store the node details.</td>
+</tr>
+<tr>
+<td style="text-align:center">Insertion</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(N)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td>Since there is no reordering in Binary Tree the worst case space complexity goes up.</td>
+</tr>
+<tr>
+<td style="text-align:center">Deletion</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(N)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td>Since there is no reordering in Binary Tree the worst case space complexity goes up.</td>
+
+</tr>
+<tr>
+<td style="text-align:center">Search</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(N)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
+<td>Since there is no reordering in Binary Tree the worst case space complexity goes up.</td>
+</tr>
+</table>
+
+### Binary Trees formulae:
+
+Height of tree:
+1. max(left child height, right child height) + 1
+2. Leaf node's height is -1
+
+Balance:
+1. Null Node is 0
+2. balance = (left child height - right child height) - 1
+3. The balance has to be more than 1 for the reordering to happen. If the balance is positive 
+   then it is a left heavy binary tree and if it is negative then it is a right heavy binary tree.
+
+## Heap formulae:
+
+### Heap Complexities:
+
+### Heap formulae:
+
+Find index of child nodes:
+if i is the index of the root/parent node then left child = 2i+1 and right child = 2i+2
+
+Similarly, find index of root/parent:
+If i is the index of the node then from left child = (i-1)/2 and right child = (i-2)/2
+
