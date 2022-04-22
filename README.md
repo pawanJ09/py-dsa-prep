@@ -98,7 +98,6 @@ store the node details.</td>
 <td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
 <td style="text-align:center">Best Case: O(logN), Worst Case: O(logN)</td>
 <td>Since there is no reordering in Binary Tree the worst case space complexity goes up.</td>
-
 </tr>
 <tr>
 <td style="text-align:center">Search</td>
@@ -124,6 +123,80 @@ Balance:
 ## Heap formulae:
 
 ### Heap Complexities:
+
+<table>
+<tr>
+<td style="text-align:center">Operation</td>
+<td style="text-align:center">Time complexity</td>
+</tr>
+<tr>
+<td style="text-align:center">Find min/max</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+<tr>
+<td style="text-align:center">Remove min/max</td>
+<td style="text-align:center">O(logN)</td>
+<tr>
+<td style="text-align:center">Insert item</td>
+<td style="text-align:center">O(logN)</td>
+</tr>
+</table>
+
+
+### Heap Type Complexities:
+
+<table>
+<tr>
+<td>Operation</td>
+<td style="text-align:center">Binary</td>
+<td style="text-align:center">Binomial</td>
+<td style="text-align:center">Fibonacci</td>
+<td style="text-align:center">Description</td>
+</tr>
+<tr>
+<td style="text-align:center">Space</td>
+<td style="text-align:center">O(N)</td>
+<td style="text-align:center">O(N)</td>
+<td style="text-align:center">O(N)</td>
+<td style="text-align:center">All of these have similar space complexity because we need to 
+store the heap elements.</td>
+</tr>
+<tr>
+<td style="text-align:center">Find min</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">O(1)</td>
+<td>Min/Max values can be found as the root node.</td>
+</tr>
+<tr>
+<td style="text-align:center">Delete min</td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(logN)</td>
+<td>Since after removing root node heapify operation takes place to reorder the tree</td>
+</tr>
+<tr>
+<td style="text-align:center">Insertion</td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">O(1)</td>
+<td>Since there is heapify in Binary Heap the time complexity goes up.</td>
+</tr>
+<tr>
+<td style="text-align:center">Decrease key</td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(1)</td>
+<td>Since there is heapify in Binary Heap the time complexity goes up.</td>
+</tr>
+<tr>
+<td style="text-align:center">Merge</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">O(logN)</td>
+<td style="text-align:center">O(1)</td>
+<td></td>
+</tr>
+</table>
 
 ### Heap formulae:
 
