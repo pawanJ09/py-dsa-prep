@@ -93,6 +93,21 @@ class Heap:
             min_element = self.poll()
             print(min_element)
 
+    def is_min_heap(self, heap_in) -> bool:
+        if heap_in:
+            # Don't consider the leaf nodes as we cannot go down beyond leaf nodes
+            # Also, dividing by 2 to decide number of times the loop should go for checking heap
+            heap_min = heap_in.min_heap
+            # num_items = (len(heap_min) - 2) // 2
+            num_items = (6 - 2)//2
+            for i in range(num_items):
+                left_child_index = (2 * i) + 1
+                right_child_index = (2 * i) + 2
+                if heap_min[i] > heap_min[left_child_index] \
+                        or heap_min[i] > heap_min[right_child_index]:
+                    return False
+        return True
+
 
 if __name__ == '__main__':
     heap = Heap()
@@ -103,5 +118,22 @@ if __name__ == '__main__':
     heap.insert(18)
     heap.insert(100)
     heap.heap_sort()
+    heap2 = Heap()
+    heap2.insert(9)
+    heap2.insert(18)
+    heap2.insert(23)
+    heap2.insert(56)
+    heap2.insert(78)
+    heap2.insert(100)
+    print(f'Heap with elements {heap2.min_heap} is Min Heap? {heap2.is_min_heap(heap2)}')
+    heap3 = Heap()
+    heap3.insert(23)
+    heap3.insert(9)
+    heap3.insert(78)
+    heap3.insert(56)
+    heap3.insert(18)
+    heap3.insert(100)
+    print(f'Heap with elements {heap3.min_heap} is Min Heap? {heap3.is_min_heap(heap3)}')
+
 
 
