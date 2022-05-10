@@ -120,7 +120,7 @@ Balance:
 3. The balance has to be more than 1 for the reordering to happen. If the balance is positive 
    then it is a left heavy binary tree and if it is negative then it is a right heavy binary tree.
 
-## Heap formulae:
+## Heap:
 
 ### Heap Complexities:
 
@@ -206,3 +206,27 @@ if i is the index of the root/parent node then left child = 2i+1 and right child
 Similarly, find index of root/parent:
 If i is the index of the node then from left child = (i-1)/2 and right child = (i-2)/2
 
+## Hash Tables:
+
+### Hash table Complexities:
+
+<table>
+<tr>
+<td style="text-align:center">Operation</td>
+<td style="text-align:center">Time complexity</td>
+</tr>
+<tr>
+<td style="text-align:center">Insert item</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+<tr>
+<td style="text-align:center">Remove item</td>
+<td style="text-align:center">O(1)</td>
+<tr>
+<td style="text-align:center">Search item</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+</table>
+
+The key and value pairs are unordered hence hash tables are not the go to abstract data structures 
+for sorting. In such cases a balanced binary search tree would be used.
